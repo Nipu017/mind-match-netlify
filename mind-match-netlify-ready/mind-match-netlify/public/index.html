@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171329"><title>Mind Match — Think alike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+<main class="app">
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark">✳</span><span>MIND<span class="brand-light">MATCH</span></span></a><span class="online-pill"><span class="dot"></span> PLAY TOGETHER</span></header>
+  <section id="home" class="screen">
+    <div class="hero"><div class="eyebrow">THE PARTY GAME FOR YOUR PEOPLE</div><h1>Think alike.<br><span>Win together.</span></h1><p class="subtitle">The goal isn't to be right. It's to get inside everyone else's head.</p>
+      <div class="hero-stats"><div><strong>2–8</strong><span>PLAYERS</span></div><i></i><div><strong>10</strong><span>ROUNDS</span></div><i></i><div><strong>0</strong><span>TRIVIA NEEDED</span></div></div>
+    </div>
+    <div class="entry-grid">
+      <form id="create-form" class="panel"><div class="panel-icon icon-purple">✦</div><h2>Start a room</h2><p>Be the host. Bring your people in.</p><label for="host-name">YOUR NAME</label><input id="host-name" maxlength="18" placeholder="e.g. Nipu" autocomplete="nickname" required><button class="btn btn-primary" type="submit">Create a room <span>↗</span></button></form>
+      <form id="join-form" class="panel"><div class="panel-icon icon-orange">⌁</div><h2>Join your people</h2><p>Got a code? You're one step away.</p><label for="join-name">YOUR NAME</label><input id="join-name" maxlength="18" placeholder="What should we call you?" autocomplete="nickname" required><label for="room-code">ROOM CODE</label><input id="room-code" maxlength="5" placeholder="ABCDE" class="code-input" autocomplete="off" required><button class="btn btn-secondary" type="submit">Join room <span>→</span></button></form>
+    </div>
+    <p id="home-error" class="error-msg" role="alert"></p>
+    <div class="how"><div class="how-title">HOW TO PLAY</div><div class="how-items"><div><span>01</span><p>Read a prompt</p></div><div><span>02</span><p>Guess what others will say</p></div><div><span>03</span><p>Match the biggest group</p></div></div></div>
+  </section>
+  <section id="room" class="screen hidden">
+    <div class="room-head"><div><div class="eyebrow" id="room-eyebrow">YOUR ROOM</div><h1 id="room-title">Room <span id="room-code-display">-----</span></h1><p class="subtitle" id="room-subtitle">Invite your friends to join.</p></div><button id="copy-code" class="btn btn-ghost">Copy code ↗</button></div>
+    <div id="lobby" class="panel lobby-panel"><div class="section-row"><h2>Who's playing?</h2><span id="player-count" class="count-pill">1 / 8</span></div><div id="players" class="players-grid"></div><div class="lobby-bottom"><p id="lobby-hint">Waiting for at least one more player…</p><button id="start-game" class="btn btn-primary" disabled>Let's play <span>→</span></button></div></div>
+    <div id="game" class="hidden">
+      <div class="game-meta"><span id="round-label" class="count-pill">ROUND 1 OF 10</span><span class="timer"><span>◷</span> <strong id="timer-value">20</strong>s</span></div>
+      <div class="panel question-panel"><div class="question-kicker">THINK LIKE YOUR FRIENDS</div><h2 id="prompt-text">Name a yellow fruit.</h2><p id="prompt-help">Don't overthink it. What will the group say?</p><form id="answer-form"><input id="answer-input" maxlength="80" placeholder="Type your answer…" autocomplete="off" required><button id="submit-answer" class="btn btn-primary" type="submit">Lock it in ↗</button></form><div id="submitted-note" class="submitted-note hidden">✓ Answer locked. Waiting for everyone else…</div><div class="timer-track"><div id="timer-bar"></div></div></div>
+      <div class="panel live-panel"><div class="section-row"><h3>Players in the room</h3><span id="submitted-count" class="muted">0 of 0 locked in</span></div><div id="live-players" class="players-grid compact"></div></div>
+      <div id="reveal-panel" class="panel reveal-panel hidden"><div class="question-kicker">THE GROUP HAS SPOKEN</div><h2 id="reveal-title">Look at those minds.</h2><div id="answer-groups" class="answer-groups"></div><div id="reveal-footer" class="reveal-footer"></div></div>
+      <div id="final-panel" class="panel final-panel hidden"><div class="winner-spark">✦</div><div class="eyebrow">THAT'S A WRAP</div><h2 id="final-title">Mind readers.</h2><p id="final-subtitle">Here is your final leaderboard.</p><div id="final-leaderboard" class="final-leaderboard"></div><button id="back-home" class="btn btn-primary">Back to home ↗</button></div>
+    </div>
+    <p id="room-error" class="error-msg" role="alert"></p>
+  </section>
+  <footer><span>MADE FOR THE GROUP CHAT THAT NEVER SLEEPS</span><span>✳ MIND MATCH</span></footer>
+</main>
+<script src="/app.js"></script>
+</body></html>
